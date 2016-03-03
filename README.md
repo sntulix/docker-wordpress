@@ -11,3 +11,7 @@
 - diffmerge
 - git latest
 - anthy
+
+## option
+- umake
+- visual studio code
