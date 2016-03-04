@@ -101,6 +101,7 @@ WORKDIR /root
 
 EXPOSE 80
 COPY entrypoint.sh /root/src/entrypoint.sh
+RUN chmod +x /root/src/entrypoint.sh
 ENTRYPOINT ["/root/src/entrypoint.sh"]
 
 
