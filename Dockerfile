@@ -97,6 +97,19 @@ COPY wp-config.php /var/www/html/wordpress/
 RUN chown -R www-data:www-data /var/www/html/wordpress
 
 
+# Install nvm and node.js
+ENV NODE_VERSION v4.2.6
+RUN git clone https://github.com/creationix/nvm.git /root/.nvm
+RUN echo "if [[ -s /root/.nvm/nvm.sh ]] ; then source /root/.nvm/nvm.sh ; fi" > /root/.bash_profile
+RUN /bin/bash -c 'source /root/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSION && nvm alias default $NODE_VERSION && ln -s /root/.nvm/versions/node/$NODE_VERSION/bin/node /usr/bin/node && ln -s /root/.nvm/versions/node/$NODE_VERSION/bin/npm /usr/bin/npm'
+
+## install node-sass
+RUN npm -g --ignore-scripts install spawn-sync
+RUN npm -g --unsafe-perm install node-sass
+RUN npm -g install less
+RUN npm -g install stylus
+
+
 WORKDIR /root
 
 EXPOSE 80
