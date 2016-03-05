@@ -6,6 +6,7 @@
 - php5.5.9
 - mysql5.6.28
 - wordpress latest ja
+- node.js, npm (node-sass, less, stylus)
 - xfce4-terminal
 - gvim
 - diffmerge
