@@ -93,6 +93,7 @@ WORKDIR /var/www/html
 RUN tar xvfp /root/src/wordpress-latest-ja.tar.gz
 RUN /bin/bash -c "service mysql start && mysql -e \"CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;\" && mysql -e \"CREATE USER wpadmin@localhost IDENTIFIED BY 'password';\" && mysql -e \"GRANT ALL ON wordpress.* TO wpadmin@localhost;\""
 
+RUN usermod -u 1000 www-data
 COPY wp-config.php /var/www/html/wordpress/
 RUN chown -R www-data:www-data /var/www/html/wordpress
 
