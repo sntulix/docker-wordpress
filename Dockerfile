@@ -109,6 +109,7 @@ RUN npm -g --ignore-scripts install spawn-sync
 RUN npm -g --unsafe-perm install node-sass
 RUN npm -g install less
 RUN npm -g install stylus
+RUN npm -g install eslint
 
 
 WORKDIR /root
